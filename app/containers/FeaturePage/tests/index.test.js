@@ -1,4 +1,3 @@
-import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 
@@ -16,11 +15,11 @@ describe('<FeaturePage />', () => {
       <H1>
         <FormattedMessage {...messages.header} />
       </H1>
-    )).toEqual(true);
+    )).toBe(true);
   });
 
   it('should link to "/"', () => {
-    const openRouteSpy = expect.createSpy();
+    const openRouteSpy = jest.fn();
 
     // Spy on the openRoute method of the FeaturePage
     const openRoute = (dest) => {
