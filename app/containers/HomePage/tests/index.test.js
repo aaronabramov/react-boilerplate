@@ -2,7 +2,6 @@
  * Test the HomePage
  */
 
-import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 
@@ -20,7 +19,7 @@ describe('<HomePage />', () => {
     const renderedComponent = shallow(
       <HomePage loading />
     );
-    expect(renderedComponent.contains(<List component={LoadingIndicator} />)).toEqual(true);
+    expect(renderedComponent.contains(<List component={LoadingIndicator} />)).toBe(true);
   });
 
   it('should render an error if loading failed', () => {
@@ -74,7 +73,7 @@ describe('<HomePage />', () => {
   });
 
   it('should link to /features', () => {
-    const openRouteSpy = expect.createSpy();
+    const openRouteSpy = jest.fn();
 
     // Spy on the openRoute method of the HomePage
     const openRoute = (dest) => {
