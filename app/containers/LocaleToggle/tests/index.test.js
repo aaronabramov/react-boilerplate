@@ -1,7 +1,6 @@
 import LocaleToggle from '../index';
 import LanguageProvider from '../../LanguageProvider';
 
-import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import configureStore from '../../../store';
 import React from 'react';
@@ -12,7 +11,7 @@ import { translationMessages } from '../../../i18n';
 describe('<LocaleToggle />', () => {
   let store;
 
-  before(() => {
+  beforeAll(() => {
     store = configureStore({}, browserHistory);
   });
 
@@ -24,7 +23,7 @@ describe('<LocaleToggle />', () => {
         </LanguageProvider>
       </Provider>
     );
-    expect(renderedComponent.contains(<LocaleToggle />)).toEqual(true);
+    expect(renderedComponent.contains(<LocaleToggle />)).toBe(true);
   });
 
   it('should present the default `en` english language option', () => {
@@ -35,6 +34,6 @@ describe('<LocaleToggle />', () => {
         </LanguageProvider>
       </Provider>
     );
-    expect(renderedComponent.contains(<option value="en">en</option>)).toEqual(true);
+    expect(renderedComponent.contains(<option value="en">en</option>)).toBe(true);
   });
 });

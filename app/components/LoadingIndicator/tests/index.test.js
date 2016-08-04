@@ -1,6 +1,5 @@
 import LoadingIndicator from '../index';
 
-import expect from 'expect';
 import { shallow } from 'enzyme';
 import React from 'react';
 
@@ -9,6 +8,6 @@ describe('<LoadingIndicator />', () => {
     const renderedComponent = shallow(
       <LoadingIndicator />
     );
-    expect(renderedComponent.find('div').length).toEqual(14);
+    expect(renderedComponent.find('div').length).toBe(14);
   });
 });

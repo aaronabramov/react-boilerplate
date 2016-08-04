@@ -1,5 +1,5 @@
-import expect from 'expect';
 import { shallow, mount } from 'enzyme';
+
 import React from 'react';
 
 import { IntlProvider, FormattedMessage } from 'react-intl';
@@ -16,7 +16,7 @@ describe('<FeaturePage />', () => {
       <H1>
         <FormattedMessage {...messages.header} />
       </H1>
-    )).toEqual(true);
+    )).toBe(true);
   });
 
   it('should link to "/"', () => {

@@ -2,7 +2,6 @@
  * Testing the NotFoundPage
  */
 
-import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 
@@ -30,7 +29,7 @@ describe('<NotFound />', () => {
       <NotFound />
     );
     const renderedButton = renderedComponent.find(Button);
-    expect(renderedButton.length).toEqual(1);
+    expect(renderedButton.length).toBe(1);
   });
 
   it('should link to "/"', () => {
