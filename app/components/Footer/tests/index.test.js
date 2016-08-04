@@ -1,4 +1,3 @@
-import expect from 'expect';
 import { shallow } from 'enzyme';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -18,7 +17,7 @@ describe('<Footer />', () => {
           <FormattedMessage {...messages.licenseMessage} />
         </p>
       </section>
-    )).toEqual(true);
+    )).toBe(true);
   });
 
   it('should render the credits', () => {
@@ -34,6 +33,6 @@ describe('<Footer />', () => {
           />
         </p>
       </section>
-    )).toEqual(true);
+    )).toBe(true);
   });
 });

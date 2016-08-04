@@ -1,4 +1,3 @@
-import expect from 'expect';
 import { shallow } from 'enzyme';
 import React from 'react';
 
@@ -17,7 +16,7 @@ describe('<FeaturePage />', () => {
       <H1>
         <FormattedMessage {...messages.header} />
       </H1>
-    )).toEqual(true);
+    )).toBe(true);
   });
 
   it('should link to "/"', (done) => {
