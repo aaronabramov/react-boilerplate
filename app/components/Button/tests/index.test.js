@@ -4,7 +4,6 @@
 
 import Button from '../index';
 
-import expect from 'expect';
 import { shallow } from 'enzyme';
 import React from 'react';
 
@@ -16,28 +15,28 @@ describe('<Button />', () => {
         {children}
       </Button>
     );
-    expect(renderedComponent.contains(children)).toEqual(true);
+    expect(renderedComponent.contains(children)).toBe(true);
   });
 
   it('should adopt the className', () => {
-    const renderedComponent = shallow(<Button className="test" />);
-    expect(renderedComponent.find('a').hasClass('test')).toEqual(true);
+    const renderedComponent = shallow(<Button className="test"><h1>Test</h1></Button>);
+    expect(renderedComponent.find('a').hasClass('test')).toBe(true);
   });
 
   it('should render an <a> tag if no route is specified', () => {
-    const renderedComponent = shallow(<Button href="http://mxstbr.com" />);
-    expect(renderedComponent.find('a').length).toEqual(1);
+    const renderedComponent = shallow(<Button href="http://mxstbr.com"><h1>Test</h1></Button>);
+    expect(renderedComponent.find('a').length).toBe(1);
   });
 
   it('should render a button to change route if the handleRoute prop is specified', () => {
-    const renderedComponent = shallow(<Button handleRoute={function handler() {}} />);
+    const renderedComponent = shallow(<Button handleRoute={function handler() {}}><h1>Test</h1></Button>);
 
-    expect(renderedComponent.find('button').length).toEqual(1);
+    expect(renderedComponent.find('button').length).toBe(1);
   });
 
   it('should handle click events', () => {
-    const onClickSpy = expect.createSpy();
-    const renderedComponent = shallow(<Button onClick={onClickSpy} />);
+    const onClickSpy = jest.fn();
+    const renderedComponent = shallow(<Button onClick={onClickSpy}><h1>Test</h1></Button>);
     renderedComponent.find('a').simulate('click');
     expect(onClickSpy).toHaveBeenCalled();
   });
