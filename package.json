@@ -177,6 +177,14 @@
     ]
   },
   "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!internals/**",
+      "!coverage/**",
+      "!server/**",
+      "!mocks/**"
+    ],
     "moduleDirectories": [
       "node_modules",
       "<rootDir>/app"
