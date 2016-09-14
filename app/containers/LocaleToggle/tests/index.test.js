@@ -41,18 +41,18 @@ describe('<LocaleToggle />', () => {
   describe('mapDispatchToProps', () => {
     describe('onLocaleToggle', () => {
       it('should be injected', () => {
-        const dispatch = expect.createSpy();
+        const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
-        expect(result.onLocaleToggle).toExist();
+        expect(result.onLocaleToggle).toBeDefined();
       });
 
       it('should dispatch changeLocale when called', () => {
-        const dispatch = expect.createSpy();
+        const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
         const locale = 'de';
         const evt = { target: { value: locale } };
         result.onLocaleToggle(evt);
-        expect(dispatch).toHaveBeenCalledWith(changeLocale(locale));
+        expect(dispatch).toBeCalledWith(changeLocale(locale));
       });
     });
   });
