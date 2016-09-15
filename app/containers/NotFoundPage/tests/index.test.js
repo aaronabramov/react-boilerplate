@@ -33,7 +33,7 @@ describe('<NotFound />', () => {
   });
 
   it('should link to "/"', () => {
-    const changeRouteSpy = expect.createSpy();
+    const changeRouteSpy = jest.fn();
     const onChangeRoute = (dest) => {
       if (dest === '/') {
         changeRouteSpy();
