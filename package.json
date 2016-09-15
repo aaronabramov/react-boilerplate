@@ -44,7 +44,7 @@
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest",
     "test:coverage": "cross-env NODE_ENV=test jest --coverage",
-    "coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
+    "coveralls": "test:coverage && cat ./coverage/lcov.info | coveralls"
   },
   "lint-staged": {
     "*.js": "lint:eslint",
