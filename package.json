@@ -43,6 +43,7 @@
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
     "coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
   },
   "lint-staged": {
@@ -177,6 +178,14 @@
     ]
   },
   "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!internals/**",
+      "!coverage/**",
+      "!server/**",
+      "!mocks/**"
+    ],
     "moduleDirectories": [
       "node_modules",
       "<rootDir>/app"
