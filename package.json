@@ -191,7 +191,9 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "app/**/*.{js,jsx}"
+      "app/**/*.{js,jsx}",
+      "!app/app.js",
+      "!app/routes.js"
     ],
     "moduleDirectories": [
       "node_modules",
