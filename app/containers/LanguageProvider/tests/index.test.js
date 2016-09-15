@@ -6,7 +6,7 @@ import configureStore from '../../../store';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router';
-import { translatedMessages } from '../../../i18n';
+import { translationMessages } from '../../../i18n';
 
 describe('<LanguageProvider />', () => {
   let store;
@@ -24,7 +24,7 @@ describe('<LanguageProvider />', () => {
     });
     const renderedComponent = shallow(
       <Provider store={store}>
-        <LanguageProvider messages={translatedMessages}>
+        <LanguageProvider messages={translationMessages}>
           <FormattedMessage {...messages.someMessage} />
         </LanguageProvider>
       </Provider>
