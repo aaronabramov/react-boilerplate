@@ -80,7 +80,7 @@
     "env": {
       "browser": true,
       "node": true,
-      "jasmine": true,
+      "jest": true,
       "es6": true
     },
     "plugins": [
@@ -137,7 +137,7 @@
     "settings": {
       "import/resolver": {
         "webpack": {
-          "config": "./internals/webpack/webpack.test.babel.js"
+          "config": "./internals/webpack/webpack.prod.babel.js"
         }
       }
     }
