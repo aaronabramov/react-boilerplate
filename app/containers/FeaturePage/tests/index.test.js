@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-
 import React from 'react';
 
 import Button from 'components/Button';
@@ -23,7 +22,7 @@ describe('<FeaturePage />', () => {
   it('should link to "/"', (done) => {
     // Spy on the openRoute method of the FeaturePage
     const dispatch = (action) => {
-      expect(action.payload.args).toEqual('/');
+      expect(action.payload.args).toEqual(['/']);
       done();
     };
 
