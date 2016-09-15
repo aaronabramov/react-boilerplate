@@ -26,7 +26,7 @@ describe('<FeaturePage />', () => {
 
     // Spy on the openRoute method of the FeaturePage
     const dispatch = (action) => {
-      expect(action.payload.args).toEqual('/');
+      expect(action.payload.args).toEqual(['/']);
       openRouteSpy();
     };
 
