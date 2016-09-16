@@ -76,12 +76,4 @@ describe('githubDataSaga Saga', () => {
     const takeDescriptor = githubDataSaga.next();
     expect(takeDescriptor.value).toEqual(take(LOCATION_CHANGE));
   });
-
-  xit('should finally cancel() the forked getReposWatcher saga',
-    function* githubDataSagaCancellable() {
-      // reuse open fork for more integrated approach
-      forkDescriptor = githubDataSaga.next(put(LOCATION_CHANGE));
-      expect(forkDescriptor.value).toEqual(cancel(forkDescriptor));
-    }
-  );
 });
