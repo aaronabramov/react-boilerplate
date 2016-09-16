@@ -1,7 +1,10 @@
-import { shallow, mount } from 'enzyme';
+
+
+import { shallow } from 'enzyme';
 import React from 'react';
 
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import Button from 'components/Button';
+import { FormattedMessage } from 'react-intl';
 import messages from '../messages';
 import { FeaturePage } from '../index';
 import H1 from 'components/H1';
@@ -22,19 +25,15 @@ describe('<FeaturePage />', () => {
     const openRouteSpy = jest.fn();
 
     // Spy on the openRoute method of the FeaturePage
-    const openRoute = (dest) => {
-      if (dest === '/') {
-        openRouteSpy();
-      }
+    const dispatch = (action) => {
+      expect(action.payload.args).toEqual(['/']);
+      openRouteSpy();
     };
 
-    const renderedComponent = mount(
-      <IntlProvider locale="en">
-        <FeaturePage changeRoute={openRoute} />
-      </IntlProvider>
+    const renderedComponent = shallow(
+      <FeaturePage dispatch={dispatch} />
     );
-    const button = renderedComponent.find('button');
-    button.simulate('click');
-    expect(openRouteSpy).toHaveBeenCalled();
+    const button = renderedComponent.find(Button);
+    button.prop('handleRoute')();
   });
 });

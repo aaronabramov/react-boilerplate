@@ -1,4 +1,5 @@
-import LocaleToggle from '../index';
+import LocaleToggle, { mapDispatchToProps } from '../index';
+import { changeLocale } from '../../LanguageProvider/actions';
 import LanguageProvider from '../../LanguageProvider';
 
 import { shallow, mount } from 'enzyme';
@@ -35,5 +36,24 @@ describe('<LocaleToggle />', () => {
       </Provider>
     );
     expect(renderedComponent.contains(<option value="en">en</option>)).toBe(true);
+  });
+
+  describe('mapDispatchToProps', () => {
+    describe('onLocaleToggle', () => {
+      it('should be injected', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        expect(result.onLocaleToggle).toBeDefined();
+      });
+
+      it('should dispatch changeLocale when called', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        const locale = 'de';
+        const evt = { target: { value: locale } };
+        result.onLocaleToggle(evt);
+        expect(dispatch).toBeCalledWith(changeLocale(locale));
+      });
+    });
   });
 });

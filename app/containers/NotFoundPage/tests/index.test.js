@@ -2,10 +2,10 @@
  * Testing the NotFoundPage
  */
 
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { NotFound } from '../index';
 import H1 from 'components/H1';
 import Button from 'components/Button';
@@ -40,13 +40,10 @@ describe('<NotFound />', () => {
       }
     };
 
-    const renderedComponent = mount(
-      <IntlProvider locale="en">
-        <NotFound changeRoute={onChangeRoute} />
-      </IntlProvider>
+    const renderedComponent = shallow(
+      <NotFound dispatch={onChangeRoute} />
     );
-    const button = renderedComponent.find('button');
-    button.simulate('click');
-    expect(changeRouteSpy).toHaveBeenCalled();
+    const button = renderedComponent.find(Button);
+    button.prop('handleRoute')();
   });
 });

@@ -2,17 +2,13 @@
  * Tests for HomePage sagas
  */
 
-// import expect from 'expect';
-import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
+import { take, call, put, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { getRepos, getReposWatcher, githubData } from '../sagas';
 
 import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
-
-import request from 'utils/request';
-import { selectUsername } from 'containers/HomePage/selectors';
 
 const username = 'mxstbr';
 
@@ -27,7 +23,6 @@ describe('getRepos Saga', () => {
     const selectDescriptor = getReposGenerator.next().value;
     expect(selectDescriptor).toMatchSnapshot();
 
-    const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
     const callDescriptor = getReposGenerator.next(username).value;
     expect(callDescriptor).toMatchSnapshot();
   });
