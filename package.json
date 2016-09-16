@@ -42,7 +42,7 @@
     "pretest": "npm run test:clean && npm run lint",
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest --no-cache --coverage",
-    "test:watch": "cross-env NODE_ENV=test jest --no-cache --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --watch --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "lint-staged": {
@@ -271,7 +271,6 @@
     "html-webpack-plugin": "2.22.0",
     "image-webpack-loader": "2.0.0",
     "imports-loader": "0.6.5",
-    "jest": "^15.1.1",
     "jest-cli": "^15.1.1",
     "json-loader": "0.5.4",
     "lint-staged": "2.0.2",
