@@ -42,7 +42,7 @@
     "pretest": "npm run test:clean && npm run lint",
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest --no-cache --coverage",
-    "test:watch": "cross-env NODE_ENV=test jest --watch --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --no-cache --watchAll --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "lint-staged": {
