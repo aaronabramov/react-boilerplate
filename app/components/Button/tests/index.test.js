@@ -33,7 +33,7 @@ describe('<Button />', () => {
   });
 
   it('should handle click events', () => {
-    const onClickSpy = expect.createSpy();
+    const onClickSpy = jest.fn();
     const renderedComponent = renderComponent({ onClick: onClickSpy });
     renderedComponent.find('a').simulate('click');
     expect(onClickSpy).toHaveBeenCalled();
@@ -48,12 +48,12 @@ describe('<Button />', () => {
   it('should not adopt a type attribute when rendering an <a> tag', () => {
     const type = 'text/html';
     const renderedComponent = renderComponent({ href, type });
-    expect(renderedComponent.prop('type')).toNotExist();
+    expect(renderedComponent.prop('type')).toBeUndefined();
   });
 
   it('should not adopt a type attribute when rendering a button', () => {
     const type = 'submit';
     const renderedComponent = renderComponent({ handleRoute, type });
-    expect(renderedComponent.prop('type')).toNotExist();
+    expect(renderedComponent.prop('type')).toBeUndefined();
   });
 });

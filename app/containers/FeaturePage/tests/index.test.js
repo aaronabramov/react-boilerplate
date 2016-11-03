@@ -20,10 +20,9 @@ describe('<FeaturePage />', () => {
   });
 
   it('should link to "/"', (done) => {
-    const openRouteSpy = jest.fn();
     // Spy on the openRoute method of the FeaturePage
     const dispatch = (action) => {
-      expect(action.payload.args).toEqual('/');
+      expect(action.payload.args).toEqual(['/']);
       done();
     };
 

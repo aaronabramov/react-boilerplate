@@ -34,7 +34,7 @@ describe('<NotFound />', () => {
 
   it('should link to "/"', (done) => {
     const dispatch = (action) => {
-      expect(action.payload.args).toEqual('/');
+      expect(action.payload.args).toEqual(['/']);
       done();
     };
 
